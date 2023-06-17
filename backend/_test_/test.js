@@ -1,11 +1,19 @@
 const request = require("supertest");
 const app = require("../app");
 const { Product } = require("../models");
-const { destroyTabelProduct } = require("../libs/destroy");
+const {
+  destroyTableProduct,
+  destroyTableProductOrder,
+  destroyTableCustomer,
+  destroyTableOrder,
+} = require("../libs/destroy");
 const { createProduct } = require("../libs/create");
 
 afterAll(async () => {
-  await destroyTabelProduct();
+  await destroyTableProduct();
+  await destroyTableOrder();
+  await destroyTableProductOrder();
+  await destroyTableCustomer();
 });
 
 describe("POST /api/products", () => {
@@ -151,5 +159,96 @@ describe("PUT /api/products/:id", () => {
       .expect(404);
 
     expect(res.body.message).toBe("Data not found");
+  });
+});
+
+//test create order
+describe("POST /api/orders", () => {
+  it("should return response with status code 201", async () => {
+    await createProduct();
+    const res = await request(app)
+      .post("/api/orders")
+      .send({
+        customer_name: "nama pengguna",
+        product_order: [
+          {
+            product_id: 1,
+            quantity: 5,
+          },
+        ],
+      })
+      .expect(201);
+  });
+
+  //test create order not found
+  it("should return response with status code 404", async () => {
+    const res = await request(app)
+      .post("/api/orders")
+      .send({
+        customer_name: "nama pengguna",
+        product_order: [
+          {
+            product_id: 10,
+            quantity: 5,
+          },
+        ],
+      })
+      .expect(404);
+
+    expect(res.body.message).toBe("Data not found");
+  });
+
+  //test create order customer name is required
+  it("should return response with status code 400", async () => {
+    await createProduct();
+    const res = await request(app)
+      .post("/api/orders")
+      .send({
+        customer_name: "",
+        product_order: [
+          {
+            product_id: 1,
+            quantity: 5,
+          },
+        ],
+      })
+      .expect(400);
+
+    expect(res.body.message).toBe("Customer name is required");
+  });
+
+  //test create order quantity is required
+  it("should return response with status code 400", async () => {
+    await createProduct();
+    const res = await request(app)
+      .post("/api/orders")
+      .send({
+        customer_name: "nama pengguna",
+        product_order: [
+          {
+            product_id: 1,
+          },
+        ],
+      })
+      .expect(400);
+
+    expect(res.body.message).toBe("Quantity is required");
+  });
+  //test create order quantity is required
+  it("should return response with status code 400", async () => {
+    await createProduct();
+    const res = await request(app)
+      .post("/api/orders")
+      .send({
+        customer_name: "nama pengguna",
+        product_order: [
+          {
+            quantity: 5,
+          },
+        ],
+      })
+      .expect(400);
+
+    expect(res.body.message).toBe("Product id is required");
   });
 });
