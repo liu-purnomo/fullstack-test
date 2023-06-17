@@ -1,6 +1,6 @@
 const errorHandler = (err, req, res, next) => {
-  let status;
-  let message;
+  let status = 500;
+  let message = "Internal Server Error";
 
   switch (err.name) {
     case "SequelizeValidationError":
@@ -8,15 +8,9 @@ const errorHandler = (err, req, res, next) => {
       message = err.errors[0].message;
       break;
 
-    case "SequelizeUniqueConstraintError":
-      status = 400;
-      message = err.errors[0].message;
-      break;
-
-    // default global error
-    default:
-      status = 500;
-      message = "Internal Server Error";
+    case "NotFound":
+      status = 404;
+      message = "Data not found";
       break;
   }
 
