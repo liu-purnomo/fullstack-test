@@ -35,44 +35,29 @@ Create a new order.
 
 ```json
 {
-  "message": "Order created successfully",
-  "order": {
-    "id": "number",
-    "product_order_id": "number",
-    "product_order": [
-      {
-        "product_id": "number",
-        "quantity": "number",
-        "product": {
-          "id": "number",
-          "name": "string",
-          "description": "string",
-          "price": "number",
-          "price": "number",
-          "image_url": "string",
-          "created_at": "string",
-          "updated_at": "string"
-        }
-      },
-      {
-        "product_id": "number",
-        "quantity": "number",
-        "price": "number",
-        "product": {
-          "id": "number",
-          "name": "string",
-          "description": "string",
-          "price": "number",
-          "image_url": "string",
-          "created_at": "string",
-          "updated_at": "string"
-        }
-      }
-    ],
-    "customer_name": "string",
-    "created_at": "string",
-    "updated_at": "string"
-  }
+  "customer_name": "string",
+  "total_price": "number",
+  "order": [
+    {
+      "id": "number",
+      "product_id": "number",
+      "order_id": "number",
+      "quantity": "number",
+      "price": "number",
+      "createdAt": "2023-06-17T20:26:04.464Z",
+      "updatedAt": "2023-06-17T20:26:04.464Z"
+    },
+    {
+      "id": "number",
+      "product_id": "number",
+      "order_id": "number",
+      "quantity": "number",
+      "price": "number",
+      "createdAt": "2023-06-17T20:26:04.464Z",
+      "updatedAt": "2023-06-17T20:26:04.464Z"
+    },
+    ...
+  ],
 }
 ```
 
@@ -108,7 +93,7 @@ Create a new order.
 
 ```json
 {
-  "message": "Product not found"
+  "message": "Data not found"
 }
 ```
 

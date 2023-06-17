@@ -12,6 +12,16 @@ const errorHandler = (err, req, res, next) => {
       status = 404;
       message = "Data not found";
       break;
+
+    case "QuantityRequired":
+      status = 400;
+      message = "Quantity is required";
+      break;
+
+    case "ProductIdRequired":
+      status = 400;
+      message = "Product id is required";
+      break;
   }
 
   // return response with status code and message
