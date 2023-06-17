@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1687026852873" clover="3.2.0">
-  <project timestamp="1687026852873" name="All files">
-    <metrics statements="91" coveredstatements="84" conditionals="15" coveredconditionals="9" methods="13" coveredmethods="13" elements="119" coveredelements="106" complexity="0" loc="91" ncloc="91" packages="5" files="12" classes="12"/>
+<coverage generated="1687028486178" clover="3.2.0">
+  <project timestamp="1687028486178" name="All files">
+    <metrics statements="105" coveredstatements="97" conditionals="15" coveredconditionals="9" methods="16" coveredmethods="16" elements="136" coveredelements="122" complexity="0" loc="105" ncloc="105" packages="6" files="14" classes="14"/>
     <package name="backend">
       <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
       <file name="app.js" path="/Users/liu/Documents/interview/furindo/fullstack-test/backend/app.js">
@@ -22,22 +22,44 @@
       </file>
     </package>
     <package name="backend.controllers">
-      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <metrics statements="14" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="index.js" path="/Users/liu/Documents/interview/furindo/fullstack-test/backend/controllers/index.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
       </file>
       <file name="productController.js" path="/Users/liu/Documents/interview/furindo/fullstack-test/backend/controllers/productController.js">
-        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="12" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
-        <line num="5" count="5" type="stmt"/>
-        <line num="7" count="5" type="stmt"/>
-        <line num="9" count="5" type="stmt"/>
-        <line num="11" count="5" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="23" count="4" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="12" count="5" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="backend.libs">
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="create.js" path="/Users/liu/Documents/interview/furindo/fullstack-test/backend/libs/create.js">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+      </file>
+      <file name="destroy.js" path="/Users/liu/Documents/interview/furindo/fullstack-test/backend/libs/destroy.js">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
       </file>
     </package>
     <package name="backend.middlewares">
@@ -126,7 +148,7 @@
       </file>
     </package>
     <package name="backend.routers">
-      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.js" path="/Users/liu/Documents/interview/furindo/fullstack-test/backend/routers/index.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
@@ -136,12 +158,13 @@
         <line num="7" count="1" type="stmt"/>
       </file>
       <file name="products.js" path="/Users/liu/Documents/interview/furindo/fullstack-test/backend/routers/products.js">
-        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
       </file>
     </package>
   </project>
