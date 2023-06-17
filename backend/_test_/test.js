@@ -124,3 +124,32 @@ describe("GET /api/products/:id", () => {
     expect(res.body.message).toBe("Data not found");
   });
 });
+
+//test update product by id
+describe("PUT /api/products/:id", () => {
+  it("should return response with status code 200", async () => {
+    await createProduct();
+    const res = await request(app)
+      .put("/api/products/1")
+      .send({
+        name: "Judul yang baru",
+      })
+      .expect(200);
+
+    expect(res.body).toEqual({
+      message: "Product updated successfully",
+    });
+  });
+
+  //test update product by id not found
+  it("should return response with status code 404", async () => {
+    const res = await request(app)
+      .put("/api/products/5")
+      .send({
+        name: "Judul yang baru",
+      })
+      .expect(404);
+
+    expect(res.body.message).toBe("Data not found");
+  });
+});
