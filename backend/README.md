@@ -12,6 +12,14 @@ This app using nodejs, expressjs, postgresql, sequelize, and jest
 npm install
 ```
 
+### Create database
+
+Change database configuration in `config/config.json` and run this command
+
+```
+npm run db:create
+```
+
 ### Run app
 
 ```
