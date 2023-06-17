@@ -1,0 +1,14 @@
+{
+  "name": "server-furindo",
+  "version": "1.0.0",
+  "description": "this app for furindo server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "furindo"
+  ],
+  "author": "liupurnomo.com",
+  "license": "ISC"
+}
