@@ -80,6 +80,7 @@ describe("POST /api/products", () => {
   });
 });
 
+//test get all products
 describe("GET /api/products", () => {
   it("should return response with status code 200", async () => {
     await createProduct();
@@ -96,5 +97,30 @@ describe("GET /api/products", () => {
         }),
       ])
     );
+  });
+});
+
+//test get product by id
+describe("GET /api/products/:id", () => {
+  it("should return response with status code 200", async () => {
+    await createProduct();
+
+    const res = await request(app).get("/api/products/1").expect(200);
+
+    expect(res.body).toEqual(
+      expect.objectContaining({
+        id: 1,
+        name: "Kopi Kapal Api",
+        description: "Kopi Kapal Api Nikmat",
+        price: 10000,
+        image_url: "https://www.google.com",
+      })
+    );
+  });
+
+  //test get product by id not found
+  it("should return response with status code 404", async () => {
+    const res = await request(app).get("/api/products/5").expect(404);
+    expect(res.body.message).toBe("Data not found");
   });
 });
