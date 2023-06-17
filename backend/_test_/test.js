@@ -1,6 +1,12 @@
 const request = require("supertest");
 const app = require("../app");
 const { Product } = require("../models");
+const { destroyTabelProduct } = require("../libs/destroy");
+const { createProduct } = require("../libs/create");
+
+afterAll(async () => {
+  await destroyTabelProduct();
+});
 
 describe("POST /api/products", () => {
   it("should return response with status code 201", async () => {
@@ -71,5 +77,24 @@ describe("POST /api/products", () => {
       .expect(400);
 
     expect(res.body.message).toBe("Product image url is required");
+  });
+});
+
+describe("GET /api/products", () => {
+  it("should return response with status code 200", async () => {
+    await createProduct();
+
+    const res = await request(app).get("/api/products").expect(200);
+
+    expect(res.body).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          name: "Kopi Kapal Api",
+          description: "Kopi Kapal Api Nikmat",
+          price: 10000,
+          image_url: "https://www.google.com",
+        }),
+      ])
+    );
   });
 });
