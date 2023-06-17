@@ -17,7 +17,7 @@ npm install
 Change database configuration in `config/config.json` and run this command
 
 ```
-npm run db:create
+npm run db:dev
 ```
 
 ### Run app
@@ -26,16 +26,21 @@ npm run db:create
 npm run dev
 ```
 
+### Create Database for test
+
+Change database configuration in `config/config.json` and run this command
+
+### Migration
+
+```
+npm run db:test
+
+```
+
 ### Run tests
 
 ```
 npm run test
-```
-
-### Run tests with coverage
-
-```
-npm run test:coverage
 ```
 
 ## Entity Relationship Diagram
