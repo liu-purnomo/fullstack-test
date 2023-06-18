@@ -1,8 +1,23 @@
 ## BACKEND APP
 
-This app using nodejs, expressjs, postgresql, sequelize, and jest
+This app using nodejs, expressjs, postgresql, sequelize, and jest, you can clone this repo and run this app in your local machine. make sure you have installed nodejs and postgresql in your local machine.
 
-## API Documentation
+### Clone this repo
+
+open your terminal and run this command
+
+```
+git clone git@github.com:liu-purnomo/fullstack-test.git
+```
+
+than go to backend folder
+
+```
+cd backend
+
+```
+
+## Read API Documentation
 
 [Read API Documentations](docs/README.md)
 
@@ -43,6 +58,10 @@ npm run db:test
 npm run test
 ```
 
+## Test Coverage Report
+
+![Test Coverage Report](./readme-asset/result.png)
+
 ## Entity Relationship Diagram
 
-![ERD](./ERD.png)
+![ERD](./readme-asset/ERD.png)

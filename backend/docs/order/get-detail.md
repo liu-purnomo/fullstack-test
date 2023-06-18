@@ -1,12 +1,20 @@
-## Get List Order
+## Get Detail Order
 
 ### Back to [Endpoint Lists](../README.md)
 
 Get detail order by id
 
-**URL** : `/api/orders`
+**URL** : `/api/orders/:id`
 
 **Method** : `GET`
+
+## Request Params
+
+```json
+{
+  "id": "number, required"
+}
+```
 
 ## Success Response
 
@@ -15,62 +23,66 @@ Get detail order by id
 **Body** :
 
 ```json
-[
-  {
+{
+  "order": {
     "id": "number",
-    "total_price": "number",
-    "customer_id": "number",
-    "createdAt": "timestamp",
-    "updatedAt": "timestamp",
-    "Customer": {
-      "id": "number",
-      "name": "string",
-      "createdAt": "timestamp",
-      "updatedAt": "timestamp"
-    },
+    "product_order_id": "number",
     "ProductOrders": [
       {
         "id": "number",
         "product_id": "number",
-        "order_id": "number",
         "quantity": "number",
-        "price": "number",
-        "createdAt": "timestamp",
-        "updatedAt": "timestamp",
-        "Product": {
+        "product": {
           "id": "number",
           "name": "string",
           "description": "string",
           "price": "number",
+          "price": "number",
           "image_url": "string",
-          "createdAt": "timestamp",
-          "updatedAt": "timestamp"
+          "created_at": "string",
+          "updated_at": "string"
         }
       },
       {
         "id": "number",
         "product_id": "number",
-        "order_id": "number",
         "quantity": "number",
         "price": "number",
-        "createdAt": "timestamp",
-        "updatedAt": "timestamp",
-        "Product": {
+        "product": {
           "id": "number",
           "name": "string",
           "description": "string",
           "price": "number",
+          "price": "number",
           "image_url": "string",
-          "createdAt": "timestamp",
-          "updatedAt": "timestamp"
+          "created_at": "string",
+          "updated_at": "string"
         }
-      }
-    ]
+      },
+      ...
+    ],
+    "customer_id": "string",
+    "Customer": {
+        "id": "number",
+        "name": "string",
+    },
+    "created_at": "string",
+    "updated_at": "string"
   }
-]
+}
 ```
 
 ## Error Response
+
+**Status** : `404 Not Found`
+
+**Body** :
+
+```json
+{
+  "message": "Order not found"
+}
+```
 
 **Status** : `500 Internal Server Error`
 
