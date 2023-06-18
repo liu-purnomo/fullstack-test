@@ -1,5 +1,6 @@
 import { Provider } from "react-redux";
 import { RouterProvider } from "react-router-dom";
+import "./assets/css/style.scss";
 import router from "./routers";
 import store from "./stores/store";
 
