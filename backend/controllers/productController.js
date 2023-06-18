@@ -80,6 +80,29 @@ class productController {
       next(error);
     }
   }
+
+  //delete product by id
+  static async delete(req, res, next) {
+    try {
+      //get id from req.params
+      const { id } = req.params;
+      //delete product by id
+      const product = await Product.destroy({
+        where: {
+          id,
+        },
+      });
+      //if product not found
+      console.log(product);
+      if (product <= 0) throw { name: "NotFound" };
+      //return response with status code 200
+      res.status(200).json({
+        message: "Product deleted successfully",
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 
 module.exports = productController;

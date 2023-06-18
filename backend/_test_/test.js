@@ -1,6 +1,5 @@
 const request = require("supertest");
 const app = require("../app");
-const { Product } = require("../models");
 const {
   destroyTableProduct,
   destroyTableProductOrder,
@@ -162,17 +161,36 @@ describe("PUT /api/products/:id", () => {
   });
 });
 
+//test delete product by id
+describe("DELETE /api/products/:id", () => {
+  it("should return response with status code 200", async () => {
+    await createProduct();
+    const res = await request(app).delete("/api/products/1").expect(200);
+
+    expect(res.body).toEqual({
+      message: "Product deleted successfully",
+    });
+  });
+
+  //test delete product by id not found
+  it("should return response with status code 404", async () => {
+    const res = await request(app).delete("/api/products/50").expect(404);
+
+    expect(res.body.message).toBe("Data not found");
+  });
+});
+
 //test create order
 describe("POST /api/orders", () => {
   it("should return response with status code 201", async () => {
-    await createProduct();
+    const newProduct = await createProduct();
     const res = await request(app)
       .post("/api/orders")
       .send({
         customer_name: "nama pengguna",
         product_order: [
           {
-            product_id: 1,
+            product_id: newProduct.id,
             quantity: 5,
           },
         ],
@@ -219,14 +237,14 @@ describe("POST /api/orders", () => {
 
   //test create order quantity is required
   it("should return response with status code 400", async () => {
-    await createProduct();
+    const newProduct = await createProduct();
     const res = await request(app)
       .post("/api/orders")
       .send({
         customer_name: "nama pengguna",
         product_order: [
           {
-            product_id: 1,
+            product_id: newProduct.id,
           },
         ],
       })
@@ -250,5 +268,38 @@ describe("POST /api/orders", () => {
       .expect(400);
 
     expect(res.body.message).toBe("Product id is required");
+  });
+});
+
+//test get all orders
+describe("GET /api/orders", () => {
+  it("should return response with status code 200", async () => {
+    const res = await request(app).get("/api/orders").expect(200);
+  });
+});
+
+//test get order by id
+describe("GET /api/orders/:id", () => {
+  it("should return response with status code 200", async () => {
+    const newProduct = await createProduct();
+    await request(app)
+      .post("/api/orders")
+      .send({
+        customer_name: "Nama pengguna",
+        product_order: [
+          {
+            product_id: newProduct.id,
+            quantity: 5,
+          },
+        ],
+      });
+
+    await request(app).get("/api/orders/1").expect(200);
+  });
+
+  //test get order by id not found
+  it("should return response with status code 404", async () => {
+    const res = await request(app).get("/api/orders/50").expect(404);
+    expect(res.body.message).toBe("Data not found");
   });
 });
