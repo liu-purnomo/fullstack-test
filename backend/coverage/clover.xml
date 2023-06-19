@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1687176545384" clover="3.2.0">
-  <project timestamp="1687176545384" name="All files">
-    <metrics statements="180" coveredstatements="179" conditionals="31" coveredconditionals="28" methods="25" coveredmethods="25" elements="236" coveredelements="232" complexity="0" loc="180" ncloc="180" packages="6" files="16" classes="16"/>
+<coverage generated="1687195489810" clover="3.2.0">
+  <project timestamp="1687195489810" name="All files">
+    <metrics statements="183" coveredstatements="182" conditionals="32" coveredconditionals="29" methods="25" coveredmethods="25" elements="240" coveredelements="236" complexity="0" loc="183" ncloc="183" packages="6" files="16" classes="16"/>
     <package name="backend">
       <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="app.js" path="/Users/liu/Documents/interview/furindo/fullstack-test/backend/app.js">
@@ -31,25 +31,25 @@
       <file name="orderController.js" path="/Users/liu/Documents/interview/furindo/fullstack-test/backend/controllers/orderController.js">
         <metrics statements="31" coveredstatements="31" conditionals="10" coveredconditionals="10" methods="3" coveredmethods="3"/>
         <line num="7" count="1" type="stmt"/>
-        <line num="11" count="7" type="stmt"/>
-        <line num="12" count="7" type="stmt"/>
-        <line num="13" count="7" type="stmt"/>
-        <line num="15" count="7" type="cond" truecount="2" falsecount="0"/>
-        <line num="18" count="6" type="stmt"/>
-        <line num="24" count="5" type="stmt"/>
-        <line num="33" count="5" type="stmt"/>
-        <line num="35" count="5" type="stmt"/>
-        <line num="37" count="5" type="stmt"/>
-        <line num="39" count="5" type="cond" truecount="2" falsecount="0"/>
-        <line num="40" count="4" type="stmt"/>
-        <line num="43" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="44" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="46" count="2" type="stmt"/>
-        <line num="52" count="2" type="stmt"/>
-        <line num="56" count="2" type="stmt"/>
-        <line num="61" count="2" type="stmt"/>
-        <line num="66" count="2" type="stmt"/>
-        <line num="67" count="2" type="stmt"/>
+        <line num="11" count="8" type="stmt"/>
+        <line num="12" count="8" type="stmt"/>
+        <line num="13" count="8" type="stmt"/>
+        <line num="15" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="7" type="stmt"/>
+        <line num="24" count="6" type="stmt"/>
+        <line num="33" count="6" type="stmt"/>
+        <line num="35" count="6" type="stmt"/>
+        <line num="37" count="6" type="stmt"/>
+        <line num="39" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="40" count="5" type="stmt"/>
+        <line num="43" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="44" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="46" count="3" type="stmt"/>
+        <line num="52" count="3" type="stmt"/>
+        <line num="56" count="3" type="stmt"/>
+        <line num="61" count="3" type="stmt"/>
+        <line num="66" count="3" type="stmt"/>
+        <line num="67" count="3" type="stmt"/>
         <line num="73" count="5" type="stmt"/>
         <line num="74" count="5" type="stmt"/>
         <line num="80" count="1" type="stmt"/>
@@ -86,13 +86,13 @@
         <line num="74" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="76" count="1" type="stmt"/>
         <line num="80" count="1" type="stmt"/>
-        <line num="86" count="2" type="stmt"/>
-        <line num="88" count="2" type="stmt"/>
-        <line num="90" count="2" type="stmt"/>
+        <line num="86" count="3" type="stmt"/>
+        <line num="88" count="3" type="stmt"/>
+        <line num="90" count="3" type="stmt"/>
         <line num="96" count="2" type="stmt"/>
         <line num="97" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="99" count="1" type="stmt"/>
-        <line num="103" count="1" type="stmt"/>
+        <line num="103" count="2" type="stmt"/>
         <line num="108" count="1" type="stmt"/>
       </file>
     </package>
@@ -102,8 +102,8 @@
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="4" count="9" type="stmt"/>
-        <line num="11" count="9" type="stmt"/>
+        <line num="4" count="10" type="stmt"/>
+        <line num="11" count="10" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
       </file>
       <file name="destroy.js" path="/Users/liu/Documents/interview/furindo/fullstack-test/backend/libs/destroy.js">
@@ -121,30 +121,33 @@
       </file>
     </package>
     <package name="backend.middlewares">
-      <metrics statements="23" coveredstatements="23" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
+      <metrics statements="26" coveredstatements="26" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
       <file name="errorHandler.js" path="/Users/liu/Documents/interview/furindo/fullstack-test/backend/middlewares/errorHandler.js">
-        <metrics statements="21" coveredstatements="21" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
+        <metrics statements="24" coveredstatements="24" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
-        <line num="2" count="13" type="stmt"/>
-        <line num="3" count="13" type="stmt"/>
-        <line num="5" count="13" type="cond" truecount="5" falsecount="0"/>
+        <line num="2" count="14" type="stmt"/>
+        <line num="3" count="14" type="stmt"/>
+        <line num="5" count="14" type="cond" truecount="6" falsecount="0"/>
         <line num="7" count="5" type="stmt"/>
         <line num="8" count="5" type="stmt"/>
         <line num="9" count="5" type="stmt"/>
-        <line num="12" count="5" type="stmt"/>
-        <line num="13" count="5" type="stmt"/>
-        <line num="14" count="5" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
+        <line num="18" count="5" type="stmt"/>
+        <line num="19" count="5" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
         <line num="29" count="1" type="stmt"/>
-        <line num="33" count="13" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="38" count="14" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
       </file>
       <file name="index.js" path="/Users/liu/Documents/interview/furindo/fullstack-test/backend/middlewares/index.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

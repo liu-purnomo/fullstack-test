@@ -178,6 +178,28 @@ describe("DELETE /api/products/:id", () => {
 
     expect(res.body.message).toBe("Data not found");
   });
+
+  it("should return response with status code 400", async () => {
+    const newProduct = await createProduct();
+    await request(app)
+      .post("/api/orders")
+      .send({
+        customer_name: "nama pengguna",
+        product_order: [
+          {
+            product_id: newProduct.id,
+            quantity: 5,
+          },
+        ],
+      })
+      .expect(201);
+
+    const res = await request(app)
+      .delete("/api/products/" + newProduct.id)
+      .expect(400);
+
+    expect(res.body.message).toBe("Cannot Delete, Product used on order list");
+  });
 });
 
 //test create order
