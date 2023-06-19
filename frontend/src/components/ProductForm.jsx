@@ -2,12 +2,12 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { actionAddProduct } from "../actions/actionCreators";
+import { CLEAR_STATE } from "../actions/actionType";
 
 function ProductForm() {
-  const MySwal = withReactContent(Swal);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { isLoading, isError, errorMessage, isSuccess, successMessage } =
@@ -20,6 +20,16 @@ function ProductForm() {
     price: undefined,
     image_url: undefined,
   });
+
+  const resetForm = () => {
+    setProduct({
+      ...product,
+      name: undefined,
+      description: undefined,
+      price: undefined,
+      image_url: undefined,
+    });
+  };
 
   const handleFormChange = (e) => {
     setProduct({
@@ -35,22 +45,12 @@ function ProductForm() {
 
   useEffect(() => {
     if (isError && errorMessage) {
-      MySwal.fire({
-        title: "Error!",
-        html: <i>{errorMessage}</i>,
-        icon: "error",
-        timer: 1500,
-      });
+      toast.error(errorMessage);
+      dispatch({ type: CLEAR_STATE });
     } else if (isSuccess && successMessage) {
-      MySwal.fire({
-        html: <i>{successMessage}</i>,
-        icon: "success",
-        timer: 1500,
-        timerProgressBar: true,
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-      });
+      toast.success(successMessage);
+      dispatch({ type: CLEAR_STATE });
+      resetForm();
       navigate("/");
     }
   }, [isLoading, isError, errorMessage, isSuccess, successMessage]);

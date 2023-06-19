@@ -28,9 +28,8 @@ export const addProduct = (productForm) => async (dispatch) => {
       url: api + "/products",
       data: productForm,
     });
-    console.log(data);
     dispatch(addProductSuccess(data.message));
   } catch (error) {
-    dispatch(addProductFailed(error));
+    dispatch(addProductFailed(error.response.data.message));
   }
 };
