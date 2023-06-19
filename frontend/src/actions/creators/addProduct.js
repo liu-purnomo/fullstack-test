@@ -20,15 +20,24 @@ const addProductFailed = (error) => ({
   error: error,
 });
 
-export const addProduct = (productForm) => async (dispatch) => {
+export const addProduct = (productForm, isEdit, id) => async (dispatch) => {
   dispatch(addProductPending());
   try {
-    const { data } = await axios({
-      method: "POST",
-      url: api + "/products",
-      data: productForm,
-    });
-    dispatch(addProductSuccess(data.message));
+    if (isEdit) {
+      const { data } = await axios({
+        method: "PUT",
+        url: api + `/products/${id}`,
+        data: productForm,
+      });
+      return dispatch(addProductSuccess(data.message));
+    } else {
+      const { data } = await axios({
+        method: "POST",
+        url: api + "/products",
+        data: productForm,
+      });
+      dispatch(addProductSuccess(data.message));
+    }
   } catch (error) {
     dispatch(addProductFailed(error.response.data.message));
   }

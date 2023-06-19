@@ -18,7 +18,7 @@ function OrderDetail() {
 
   useEffect(() => {
     dispatch(actionGetOrderDetail(id));
-  }, []);
+  }, [dispatch, id]);
 
   useEffect(() => {
     setOrderDetail(order);
@@ -26,7 +26,7 @@ function OrderDetail() {
       toast.error(errorMessage);
       navigate("/order");
     }
-  }, [order, isError, errorMessage]);
+  }, [order, isError, errorMessage, navigate]);
 
   return (
     <>

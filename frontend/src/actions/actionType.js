@@ -6,6 +6,14 @@ export const GET_PRODUCTS_PENDING = "product/getProductsPending";
 export const GET_PRODUCTS_SUCCESS = "product/getProductsSuccess";
 export const GET_PRODUCTS_ERROR = "product/getProductsError";
 
+export const GET_PRODUCT_DETAIL_PENDING = "product/getProductDetailPending";
+export const GET_PRODUCT_DETAIL_SUCCESS = "product/getProductDetailSuccess";
+export const GET_PRODUCT_DETAIL_ERROR = "product/getProductDetailError";
+
+export const DELETE_PRODUCT_PENDING = "product/deleteProductPending";
+export const DELETE_PRODUCT_SUCCESS = "product/deleteProductSuccess";
+export const DELETE_PRODUCT_ERROR = "product/deleteProductError";
+
 export const POST_ORDER_PENDING = "order/postOrderPending";
 export const POST_ORDER_SUCCESS = "order/postOrderSuccess";
 export const POST_ORDER_ERROR = "order/postOrderError";

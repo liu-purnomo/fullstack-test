@@ -1,4 +1,6 @@
 const errorHandler = (err, req, res, next) => {
+  console.log(err.name);
+  console.log(err.message);
   let status = 500;
   let message = "Internal Server Error";
 
@@ -6,6 +8,11 @@ const errorHandler = (err, req, res, next) => {
     case "SequelizeValidationError":
       status = 400;
       message = err.errors[0].message;
+      break;
+
+    case "SequelizeForeignKeyConstraintError":
+      status = 400;
+      message = "Cannot Delete, Product used on order list";
       break;
 
     case "NotFound":

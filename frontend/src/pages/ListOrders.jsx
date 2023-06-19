@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { actionGetOrders } from "../actions/actionCreators";
 import { currencyFormatter } from "../helpers/currencyFormatter";
 
@@ -10,7 +11,7 @@ function ListOrder() {
 
   useEffect(() => {
     dispatch(actionGetOrders());
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
@@ -40,7 +41,9 @@ function ListOrder() {
                       {currencyFormatter(order.total_price)}
                     </td>
                     <td className="dataTable">
-                      <a href={`/order/${order.id}`}>Detail</a>
+                      <Link to={`/order/${order.id}`}>
+                        <button className="btn-blue">Detail</button>
+                      </Link>
                     </td>
                   </tr>
                 ))}
