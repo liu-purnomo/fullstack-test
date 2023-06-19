@@ -5,6 +5,8 @@ import {
 } from "redux";
 import thunk from "redux-thunk";
 import { addProductReducer } from "../reducers/addProductReducer";
+import { getOrderDetailReducer } from "../reducers/getOrderDetailReducer";
+import { getOrdersReducer } from "../reducers/getOrdersReducer";
 import { getProductsReducer } from "../reducers/getProductsReducer";
 import { getShoppingCartReducer } from "../reducers/getShoppingCartReducer";
 import { postOrderReducer } from "../reducers/postOrderReducer";
@@ -17,6 +19,8 @@ const rootReducer = combineReducers({
   getShoppingCart: getShoppingCartReducer,
   postOrder: postOrderReducer,
   cartLength: updateCartLengthReducer,
+  orderDetail: getOrderDetailReducer,
+  orderList: getOrdersReducer,
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk));

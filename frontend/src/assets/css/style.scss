@@ -371,6 +371,18 @@ table {
   padding: 8px;
 }
 
+.alignCenter {
+  text-align: center;
+}
+
+.alignStart {
+  text-align: start;
+}
+
+.w-auto {
+  width: 30%;
+}
+
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
@@ -382,9 +394,29 @@ tr:hover {
 .tableHead {
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: left;
   background-color: #04aa6d;
   color: white;
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.tableHeadInfo {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  font-weight: 800;
+  background-color: gray;
+  color: white;
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.tableHeadInfoValue {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  font-weight: 800;
+  background-color: $light;
+  color: $dark;
   border: 1px solid #ddd;
   padding: 8px;
 }

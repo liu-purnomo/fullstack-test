@@ -12,6 +12,8 @@ class orderController {
     try {
       const { customer_name, product_order } = req.body;
 
+      if (product_order.length === 0) throw { name: "ProductOrderRequired" };
+
       //create customer
       const customer = await Customer.create(
         { name: customer_name },

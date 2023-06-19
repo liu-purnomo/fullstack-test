@@ -13,4 +13,12 @@ export const POST_ORDER_ERROR = "order/postOrderError";
 export const SET_SHOPPING_CART = "cart/setShoppingCart";
 export const UPDATE_CART_LENGTH = "cart/updateCartLength";
 
+export const GET_ORDER_DETAIL_PENDING = "order/getOrderDetailPending";
+export const GET_ORDER_DETAIL_SUCCESS = "order/getOrderDetailSuccess";
+export const GET_ORDER_DETAIL_ERROR = "order/getOrderDetailError";
+
+export const GET_ORDERS_PENDING = "orders/getOrdersPending";
+export const GET_ORDERS_SUCCESS = "orders/getOrdersSuccess";
+export const GET_ORDERS_ERROR = "orders/getOrdersError";
+
 export const CLEAR_STATE = "state/clearState";

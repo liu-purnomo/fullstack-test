@@ -216,6 +216,19 @@ describe("POST /api/orders", () => {
     expect(res.body.message).toBe("Data not found");
   });
 
+  //test if product order is empty
+  it("should return response with status code 400", async () => {
+    const res = await request(app)
+      .post("/api/orders")
+      .send({
+        customer_name: "nama pengguna",
+        product_order: [],
+      })
+      .expect(400);
+
+    expect(res.body.message).toBe("Product order is required");
+  });
+
   //test create order customer name is required
   it("should return response with status code 400", async () => {
     await createProduct();

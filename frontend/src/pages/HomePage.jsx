@@ -72,7 +72,7 @@ function HomePage() {
                         product.price
                       )
                     }
-                    className="add-to-cart"
+                    className="add-to-cart btn-red"
                   >
                     Add to Cart
                   </button>
