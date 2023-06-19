@@ -74,6 +74,14 @@ function ShoppingCart() {
     }
   }, [isError, errorMessage, isSuccess]);
 
+  useEffect(() => {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    if (cart.length <= 0) {
+      navigate("/");
+      toast.error("Shopping cart is empty");
+    }
+  }, []);
+
   return (
     <>
       <div className="hero">

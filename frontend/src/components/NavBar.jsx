@@ -2,11 +2,17 @@ import { useEffect } from "react";
 import { FaCartPlus } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { actionUpdateCartlength } from "../actions/actionCreators";
 
 function NavBar() {
   const { cartLength } = useSelector((state) => state.cartLength);
   const dispatch = useDispatch();
+
+  const emptyCart = () => {
+    toast.error("Cart is empty");
+  };
 
   useEffect(() => {
     dispatch(actionUpdateCartlength());
@@ -33,10 +39,23 @@ function NavBar() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link btn-red" to="/cart">
-              <FaCartPlus /> Cart ({cartLength})
+            <Link className="nav-link" to="/order">
+              List Orders
             </Link>
           </li>
+          {cartLength > 0 ? (
+            <li className="nav-item">
+              <Link className="nav-link btn-red" to="/cart">
+                <FaCartPlus /> Cart ({cartLength})
+              </Link>
+            </li>
+          ) : (
+            <li className="nav-item">
+              <Link onClick={emptyCart} className="nav-link btn-red" to="/">
+                <FaCartPlus /> Cart
+              </Link>
+            </li>
+          )}
         </ul>
       </nav>
     </>

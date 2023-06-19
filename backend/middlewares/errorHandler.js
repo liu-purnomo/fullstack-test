@@ -18,6 +18,11 @@ const errorHandler = (err, req, res, next) => {
       message = "Quantity is required";
       break;
 
+    case "ProductOrderRequired":
+      status = 400;
+      message = "Product order is required";
+      break;
+
     case "ProductIdRequired":
       status = 400;
       message = "Product id is required";
