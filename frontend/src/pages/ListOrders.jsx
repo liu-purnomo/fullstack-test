@@ -17,6 +17,10 @@ function ListOrder() {
     <>
       {isLoading ? (
         <div>Loading...</div>
+      ) : orders.length === 0 ? (
+        <div className="hero">
+          <h1>No orders found</h1>
+        </div>
       ) : (
         <div className="hero">
           <h1>List of Orders</h1>

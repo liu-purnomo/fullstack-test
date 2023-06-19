@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
@@ -45,43 +46,59 @@ function HomePage() {
 
   return (
     <>
-      <div className="hero">
-        <h1>List of Products</h1>
-        <div className="row">
-          {isLoading ? (
-            <p>Loading...</p>
-          ) : (
-            products.map((product) => (
-              <div className="product" key={product.id}>
-                <img
-                  className="product-img"
-                  src={product?.image_url}
-                  alt={product?.name}
-                />
-                <div className="product-info">
-                  <h4 className="product-name">{product?.name}</h4>
-                  <p>{product?.description}</p>
-                  <p>{currencyFormatter(product?.price)}</p>
-                </div>
-                <div className="product-actions">
-                  <button
-                    onClick={() =>
-                      saveToLocalStorage(
-                        product.id,
-                        product.name,
-                        product.price
-                      )
-                    }
-                    className="add-to-cart btn-red"
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            ))
-          )}
+      {products.length === 0 ? (
+        <div className="hero">
+          <h1>No products found</h1>
+          <div
+            className="row"
+            style={{
+              margin: 20 + "px",
+            }}
+          >
+            <Link to="/add-product">
+              <button className="btn-blue">Add Product</button>
+            </Link>
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="hero">
+          <h1>List of Products</h1>
+          <div className="row">
+            {isLoading ? (
+              <p>Loading...</p>
+            ) : (
+              products.map((product) => (
+                <div className="product" key={product.id}>
+                  <img
+                    className="product-img"
+                    src={product?.image_url}
+                    alt={product?.name}
+                  />
+                  <div className="product-info">
+                    <h4 className="product-name">{product?.name}</h4>
+                    <p>{product?.description}</p>
+                    <p>{currencyFormatter(product?.price)}</p>
+                  </div>
+                  <div className="product-actions">
+                    <button
+                      onClick={() =>
+                        saveToLocalStorage(
+                          product.id,
+                          product.name,
+                          product.price
+                        )
+                      }
+                      className="add-to-cart btn-red"
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      )}
     </>
   );
 }

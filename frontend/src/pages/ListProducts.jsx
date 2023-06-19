@@ -55,6 +55,20 @@ function ListProduct() {
     <>
       {isLoading ? (
         <div>Loading...</div>
+      ) : products.length === 0 ? (
+        <div className="hero">
+          <h1>No products found</h1>
+          <div
+            className="row"
+            style={{
+              margin: 20 + "px",
+            }}
+          >
+            <Link to="/add-product">
+              <button className="btn-blue">Add Product</button>
+            </Link>
+          </div>
+        </div>
       ) : (
         <div className="hero">
           <h1>List of Product</h1>
