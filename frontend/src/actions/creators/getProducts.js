@@ -28,7 +28,6 @@ export const getProducts = () => async (dispatch) => {
       url: api + "/products",
     });
     dispatch(getProductsSuccess(data));
-    console.log(data);
   } catch (error) {
     dispatch(getProductsFailed(error.response.data.message));
   }

@@ -1,15 +1,47 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { actionGetProducts } from "../actions/actionCreators";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import {
+  actionGetProducts,
+  actionUpdateCartlength,
+} from "../actions/actionCreators";
 import { currencyFormatter } from "../helpers/currencyFormatter";
 
 function HomePage() {
   const { products, isLoading } = useSelector((state) => state.getProducts);
   const dispatch = useDispatch();
 
+  const saveToLocalStorage = (productId, productName, productPrice) => {
+    let isDuplicate = false;
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.forEach((item) => {
+      if (item.product_id === productId) {
+        toast.error("Product already in cart");
+        isDuplicate = true;
+      }
+    });
+
+    if (isDuplicate) {
+      return;
+    } else {
+      cart.push({
+        product_id: productId,
+        name: productName,
+        price: productPrice,
+        quantity: 1,
+      });
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      toast.success("Product added to cart");
+    }
+
+    dispatch(actionUpdateCartlength());
+  };
+
   useEffect(() => {
     dispatch(actionGetProducts());
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
@@ -32,18 +64,18 @@ function HomePage() {
                   <p>{currencyFormatter(product?.price)}</p>
                 </div>
                 <div className="product-actions">
-                  <div className="product-set-quantity">
-                    <button className="button-min">-</button>
-                    <input
-                      className="input-quantity"
-                      type="number"
-                      defaultValue="1"
-                    />
-                    <button className="button-plus">+</button>
-                  </div>
-                  <div>
-                    <button className="add-to-cart">Add to Cart</button>
-                  </div>
+                  <button
+                    onClick={() =>
+                      saveToLocalStorage(
+                        product.id,
+                        product.name,
+                        product.price
+                      )
+                    }
+                    className="add-to-cart"
+                  >
+                    Add to Cart
+                  </button>
                 </div>
               </div>
             ))
