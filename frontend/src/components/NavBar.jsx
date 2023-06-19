@@ -34,13 +34,13 @@ function NavBar() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/add-product">
-              Add New Product
+            <Link className="nav-link" to="/product">
+              Product
             </Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/order">
-              List Orders
+              Order
             </Link>
           </li>
           {cartLength > 0 ? (
@@ -51,9 +51,9 @@ function NavBar() {
             </li>
           ) : (
             <li className="nav-item">
-              <Link onClick={emptyCart} className="nav-link btn-red" to="/">
+              <span onClick={emptyCart} className="nav-link btn-red">
                 <FaCartPlus /> Cart
-              </Link>
+              </span>
             </li>
           )}
         </ul>

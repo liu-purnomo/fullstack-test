@@ -1,17 +1,21 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { actionAddProduct } from "../actions/actionCreators";
+import { actionAddProduct, actionGetProduct } from "../actions/actionCreators";
 import { CLEAR_STATE } from "../actions/actionType";
 
 function ProductForm() {
+  const [isEdit, setIsEdit] = useState(false);
   const navigate = useNavigate();
+  const { id } = useParams();
   const dispatch = useDispatch();
   const { isLoading, isError, errorMessage, isSuccess, successMessage } =
     useSelector((state) => state.addProduct);
+
+  const productDetail = useSelector((state) => state.productDetail);
 
   //state untuk menyimpan data sementara
   const [product, setProduct] = useState({
@@ -40,8 +44,16 @@ function ProductForm() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    dispatch(actionAddProduct(product));
+    dispatch(actionAddProduct(product, isEdit, id));
   };
+
+  useEffect(() => {
+    if (id) {
+      dispatch(actionGetProduct(id));
+      setProduct(productDetail.product);
+      setIsEdit(true);
+    }
+  }, []);
 
   useEffect(() => {
     if (isError && errorMessage) {
@@ -51,7 +63,7 @@ function ProductForm() {
       toast.success(successMessage);
       dispatch({ type: CLEAR_STATE });
       resetForm();
-      navigate("/");
+      navigate("/product");
     }
   }, [isLoading, isError, errorMessage, isSuccess, successMessage]);
   return (
@@ -64,6 +76,7 @@ function ProductForm() {
             onChange={handleFormChange}
             className="form-control"
             name="name"
+            defaultValue={product.name}
             placeholder="Input product name"
           />
         </div>
@@ -73,6 +86,7 @@ function ProductForm() {
             className="form-control"
             name="description"
             onChange={handleFormChange}
+            defaultValue={product.description}
             rows={4}
             placeholder="Input product description"
           />
@@ -83,6 +97,7 @@ function ProductForm() {
             type="number"
             className="form-control"
             onChange={handleFormChange}
+            defaultValue={product.price}
             name="price"
             placeholder="Input product price"
           />
@@ -93,6 +108,7 @@ function ProductForm() {
             type="text"
             className="form-control"
             onChange={handleFormChange}
+            defaultValue={product.image_url}
             name="image_url"
             placeholder="Input product image url"
           />
