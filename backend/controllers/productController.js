@@ -28,7 +28,7 @@ class productController {
   //get all products
   static async index(req, res, next) {
     //get all products
-    const products = await Product.findAll();
+    const products = await Product.findAll({ order: [["id", "DESC"]] });
     //return response with status code 200
     res.status(200).json(products);
   }

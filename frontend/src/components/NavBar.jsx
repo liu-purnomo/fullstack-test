@@ -1,6 +1,16 @@
+import { useEffect } from "react";
+import { FaCartPlus } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { actionUpdateCartlength } from "../actions/actionCreators";
 
 function NavBar() {
+  const { cartLength } = useSelector((state) => state.cartLength);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(actionUpdateCartlength());
+  }, [dispatch]);
   return (
     <>
       <nav className="navbar">
@@ -23,8 +33,8 @@ function NavBar() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link btn-red" to="/orders">
-              List Order
+            <Link className="nav-link btn-red" to="/cart">
+              <FaCartPlus /> Cart ({cartLength})
             </Link>
           </li>
         </ul>

@@ -10,7 +10,6 @@ class orderController {
   static async create(req, res, next) {
     const t = await sequelize.transaction();
     try {
-      console.log(req.body);
       const { customer_name, product_order } = req.body;
 
       //create customer
@@ -36,17 +35,19 @@ class orderController {
       for (let i = 0; i < product_order.length; i++) {
         //calculate total price
         if (!product_order[i].product_id) throw { name: "ProductIdRequired" };
-        const product = await Product.findByPk(product_order[i].product_id);
+        const product = await Product.findByPk(
+          Number(product_order[i].product_id)
+        );
         if (!product) throw { name: "NotFound" };
         if (!product_order[i].quantity) throw { name: "QuantityRequired" };
         //push data to productOrder
         productOrder.push({
-          product_id: product_order[i].product_id,
+          product_id: Number(product_order[i].product_id),
           order_id: order.id,
-          quantity: product_order[i].quantity,
-          price: product.price * product_order[i].quantity,
+          quantity: Number(product_order[i].quantity),
+          price: product.price * Number(product_order[i].quantity),
         });
-        totalPrice += product.price * product_order[i].quantity;
+        totalPrice += product.price * Number(product_order[i].quantity);
       }
 
       //bulk create product order
@@ -68,7 +69,6 @@ class orderController {
       });
     } catch (error) {
       await t.rollback();
-      console.log(error);
       next(error);
     }
   }
@@ -76,6 +76,7 @@ class orderController {
   //get all order
   static async index(req, res, next) {
     const order = await Order.findAll({
+      order: [["id", "DESC"]],
       include: [
         {
           model: Customer,
