@@ -1,0 +1,428 @@
+$primary: #0f6fec;
+$secondary: #14191e;
+$success: #0cbc87;
+$info: #4f9ef8;
+$warning: #f7c32e;
+$danger: #d6293e;
+$light: #eef0f2;
+$dark: #14191e;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+img {
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* 
+- Typography
+*/
+
+/* Google font import */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  color: #838ea4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #0a2463;
+}
+
+h1 {
+  font-size: 3.5rem;
+  line-height: 1.4;
+}
+
+h2 {
+  font-size: 2.75rem;
+  line-height: 1.25;
+}
+
+h3 {
+  font-size: 2.25rem;
+}
+
+h4 {
+  font-size: 1.65rem;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 1.25rem;
+}
+.small {
+  font-size: 0.95rem;
+}
+
+/* Buttons */
+.btn-red {
+  background-color: #ff595e;
+  color: white !important;
+  border: 0;
+  text-decoration: none;
+  color: #838ea4;
+  font-weight: 500;
+  font-size: 0.975rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 4px;
+  transition: all ease-in 0.2s;
+}
+.btn-red:hover {
+  opacity: 0.9;
+}
+
+.btn-blue {
+  border: 0;
+  text-decoration: none;
+  color: #838ea4;
+  font-weight: 500;
+  font-size: 0.975rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 4px;
+  transition: all ease-in 0.2s;
+  background-color: #0a2463;
+  color: white;
+}
+
+.btn-link {
+  border: 0;
+  text-decoration: none;
+  background: transparent;
+  color: #838ea4;
+  font-weight: 500;
+  font-size: 0.975rem;
+  padding: 0.5rem;
+}
+
+.btn-link:hover {
+  color: #ff595e;
+}
+.btn-icon {
+  border: 0;
+  text-decoration: none;
+  color: #838ea4;
+  font-weight: 500;
+  font-size: 0.975rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 4px;
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Navbar */
+.navbar {
+  margin: 20px 20px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 300px;
+}
+
+.nav-item {
+  margin-left: 3rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #0a2463;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.header {
+  padding: 1.5rem;
+  padding-bottom: 15rem;
+  margin-bottom: 20rem;
+  background-color: #f2f5fa;
+}
+.header-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 
+- Hero 
+*/
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-top: 3rem;
+  align-items: center;
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem;
+}
+.hero-img {
+  position: relative;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-img img {
+  position: absolute;
+  border-radius: 6px;
+  max-width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 1.5rem 4rem rgba(22, 28, 45, 0.1);
+}
+.hero-subtitle {
+  color: #45c1ff;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  display: block;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  max-width: 75%;
+  margin-bottom: 1.5rem;
+}
+.hero p {
+  max-width: 50%;
+  margin-bottom: 1.5rem;
+}
+
+.hero-btns {
+  margin-bottom: 4.5rem;
+  padding-top: 0.5rem;
+}
+
+.form {
+  display: flex;
+  width: 500px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.form-control {
+  width: 500px;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+}
+
+.form-submit {
+  width: 500px;
+  background-color: $warning;
+  padding: 1rem 1.25rem;
+  color: $dark;
+  border-radius: 10px;
+}
+
+.btn-delete {
+  background-color: $danger;
+  padding: 1rem 1.25rem;
+  color: $light;
+  border-radius: 10px;
+}
+
+/* 
+- Main
+*/
+.main {
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem;
+}
+/* 
+- Reasons section
+*/
+.product {
+  display: grid;
+  grid-template-columns: 20% auto 20%;
+  gap: 1.25rem;
+  margin: 10px;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.product-img {
+  height: 100%;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.product-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  margin-top: 10px;
+  align-self: start;
+}
+
+.product-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 700px;
+}
+
+.dataTable {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.alignCenter {
+  text-align: center;
+}
+
+.alignStart {
+  text-align: start;
+}
+
+.w-auto {
+  width: 30%;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+.tableHead {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #04aa6d;
+  color: white;
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.tableHeadInfo {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  font-weight: 800;
+  background-color: gray;
+  color: white;
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.tableHeadInfoValue {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  font-weight: 800;
+  background-color: $light;
+  color: $dark;
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.input-quantity {
+  border: none;
+  width: 50px;
+  background-color: transparent;
+}
