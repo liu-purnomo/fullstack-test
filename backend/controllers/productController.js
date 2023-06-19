@@ -6,8 +6,6 @@ class productController {
     try {
       //get all data from req.body
       const { name, description, price, image_url } = req.body;
-
-      console.log(req.body);
       //create new product
       const products = await Product.create({
         name,
@@ -93,7 +91,6 @@ class productController {
         },
       });
       //if product not found
-      console.log(product);
       if (product <= 0) throw { name: "NotFound" };
       //return response with status code 200
       res.status(200).json({
