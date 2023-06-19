@@ -313,39 +313,85 @@ p {
   margin-right: auto;
   padding: 0 2rem;
 }
-
 /* 
 - Reasons section
 */
-.reasons {
+.product {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2.25rem;
-  margin-bottom: 10rem;
+  grid-template-columns: 20% auto 20%;
+  gap: 1.25rem;
+  margin: 10px;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.reasons h2 {
-  margin-bottom: 1.5rem;
+.product-img {
+  height: 100%;
 }
 
-.reasons-subtitle {
-  color: #45c1ff;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+.product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.product-name {
+  font-size: 1.25rem;
   font-weight: 600;
-  display: block;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 10px;
+  align-self: start;
 }
 
-.reasons-btns {
-  padding-top: 0.5rem;
+.product-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  gap: 1rem;
 }
 
-.reasons-icons {
-  border-radius: 4px;
-  padding: 1.5rem;
-  background-color: #f2f5fa;
+.button-plus {
+  border-radius: 25%;
+  width: 40px;
+  height: 40px;
+  background-color: $info;
+  color: $light;
+  padding: 2;
+  border: none;
+}
+.button-min {
+  border-radius: 25%;
+  width: 40px;
+  height: 40px;
+  background-color: $warning;
+  border: none;
+  color: $dark;
+  padding: 2;
+}
+
+.input-quantity {
+  width: 70px;
+  border: none;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.product-set-quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-to-cart {
+  background-color: $danger;
+  color: $light;
+  border: none;
+  padding: 0.5rem 1.7rem;
+  border-radius: 10px;
 }
 
 .reasons-icons ul {

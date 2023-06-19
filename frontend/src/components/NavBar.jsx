@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function NavBar() {
   return (
     <>
@@ -11,19 +13,19 @@ function NavBar() {
 
         <ul className="header-nav">
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              List Orders
-            </a>
+            <Link className="nav-link" to="/">
+              Home
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <Link className="nav-link" to="/add-product">
               Add New Product
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link btn-red" href="#">
-              My Cart
-            </a>
+            <Link className="nav-link btn-red" to="/orders">
+              List Order
+            </Link>
           </li>
         </ul>
       </nav>

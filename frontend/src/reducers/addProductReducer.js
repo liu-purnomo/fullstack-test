@@ -2,6 +2,7 @@ import {
   ADD_PRODUCT_ERROR,
   ADD_PRODUCT_PENDING,
   ADD_PRODUCT_SUCCESS,
+  CLEAR_STATE,
 } from "../actions/actionType";
 
 const initialState = {
@@ -34,6 +35,11 @@ export const addProductReducer = (state = initialState, action) => {
         isLoading: false,
         isError: true,
         errorMessage: action.error,
+      };
+
+    case CLEAR_STATE:
+      return {
+        initialState,
       };
 
     default:
