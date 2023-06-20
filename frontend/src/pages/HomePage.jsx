@@ -76,7 +76,9 @@ function HomePage() {
                   />
                   <div className="product-info">
                     <h4 className="product-name">{product?.name}</h4>
-                    <p>{product?.description}</p>
+                    <p className="product-description">
+                      {product?.description}
+                    </p>
                     <p>{currencyFormatter(product?.price)}</p>
                   </div>
                   <div className="product-actions">
