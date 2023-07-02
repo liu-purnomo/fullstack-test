@@ -15,10 +15,16 @@ class orderController {
       if (product_order.length === 0) throw { name: "ProductOrderRequired" };
 
       //create customer
-      const customer = await Customer.create(
-        { name: customer_name },
-        { transaction: t }
-      );
+      // const customer = await Customer.create(
+      //   { name: customer_name },
+      //   { transaction: t }
+      // );
+
+      //find or create customer
+      const [customer, created] = await Customer.findOrCreate({
+        where: { name: customer_name },
+        transaction: t,
+      });
 
       //create order
       const order = await Order.create(

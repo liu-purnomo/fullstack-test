@@ -87,7 +87,6 @@ function ListProduct() {
               <thead>
                 <tr>
                   <th className="tableHead">No</th>
-                  <th className="tableHead">Id</th>
                   <th className="tableHead">Product Name</th>
                   <th className="tableHead">Product Price</th>
                   <th className="tableHead">Action</th>
@@ -97,7 +96,6 @@ function ListProduct() {
                 {products.map((product, index) => (
                   <tr key={product.id}>
                     <td className="dataTable">{index + 1}</td>
-                    <td className="dataTable">{product.id}</td>
                     <td className="dataTable alignStart">{product.name}</td>
                     <td className="dataTable alignStart">
                       {currencyFormatter(product.price)}

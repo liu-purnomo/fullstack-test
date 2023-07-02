@@ -53,7 +53,11 @@ function ProductForm() {
       setProduct(productDetail.product);
       setIsEdit(true);
     }
-  }, []);
+  }, [id]);
+
+  useEffect(() => {
+    setProduct(productDetail.product);
+  }, [productDetail]);
 
   useEffect(() => {
     if (isError && errorMessage) {
